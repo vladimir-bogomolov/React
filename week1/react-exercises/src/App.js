@@ -1,6 +1,8 @@
 import './App.css';
 import { HobbyList } from './hobbies';
 import Guarantee from './guarantee';
+import Counter from './counter';
+
 
 function App() {
   return (
@@ -17,6 +19,7 @@ function App() {
                    title: 'Online support 24/7',
                    description: 'Description of the support service' }}/>
       </div>
+      <Counter/>
     </div>
   );
 }
