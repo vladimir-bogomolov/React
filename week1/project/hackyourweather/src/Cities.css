@@ -1,0 +1,28 @@
+#citiesWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cityCard {
+    width: 40%;
+    min-width: 250px;
+    max-width: 550px;
+    border: 2px solid black;
+    margin-bottom: 2rem;
+    padding: 2rem;
+}
+
+h1 {
+    margin: 2rem 0;
+}
+
+.temp {
+    margin: 1rem 0;
+}
+
+.cityCard h2 {
+    margin-bottom: 1rem;
+}
+
+.cityCard > p::first-letter { text-transform: uppercase;}
