@@ -3,16 +3,17 @@ import './Cities.css';
 
 
 const CityCard = ({city}) => {
+    const { name, sys, weather, main, coord } = city;
     return (
         <div className='cityCard'>
-            <h2>{city.name}, {city.sys.country}</h2>
-            <h4>{city.weather[0].main}</h4>
-            <p>{city.weather[0].description}</p>
+            <h1>{name}, {sys.country}</h1>
+            <h4>{weather[0].main}</h4>
+            <p>{weather[0].description}</p>
             <div className='temp'>
-                <p>min temp: {Math.round((city.main.temp_min - 273.15)*10)/10}</p>
-                <p>max temp: {Math.round((city.main.temp_max - 273.15)*10)/10}</p>
+                <p>min temp: {Math.round((main.temp_min - 273.15)*10)/10}</p>
+                <p>max temp: {Math.round((main.temp_max - 273.15)*10)/10}</p>
             </div>
-            <p>Location: {city.coord.lon}, {city.coord.lat}</p>
+            <p>Location: {coord.lon}, {coord.lat}</p>
         </div>
     );
 }

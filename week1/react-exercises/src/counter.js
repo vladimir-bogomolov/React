@@ -1,11 +1,11 @@
 import { useState } from "react";
 
-const Count = (props) => {
-    return <h1>{props.count}</h1>;
+const Count = ({count}) => {
+    return <h1>{count}</h1>;
 }
 
-const Button = (props) => {
-    return <button onClick={props.callback}>Add 1!</button>;
+const Button = ({callback}) => {
+    return <button onClick={callback}>Add 1!</button>;
 }
 
 const Counter = () => {
