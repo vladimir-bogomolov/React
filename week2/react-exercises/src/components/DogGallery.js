@@ -30,7 +30,7 @@ const DogGallery = () => {
       <div>
         {error && <p>Something went wrong with fetching data...</p>}
         {dogPhotos.length > 0 ? (
-          dogPhotos.map((url) => <DogPhoto url={url} />)
+          dogPhotos.map((url) => <DogPhoto url={url} key={url.slice(-10)} />)
         ) : (
           <p>Get your first dog by clicking the button!</p>
         )}
