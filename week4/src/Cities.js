@@ -1,8 +1,14 @@
 import "./App.css";
+import React from "react";
+import { Link } from "react-router-dom";
 
 const CityCard = ({ city, setWeatherData }) => {
   const { name, sys, weather, main, coord, id } = city;
   let iconId;
+  const styles = {
+    color: "black",
+    textDecoration: "none",
+  };
   switch (weather[0].main) {
     case "Thunderstorm":
       iconId = "11n";
@@ -37,24 +43,26 @@ const CityCard = ({ city, setWeatherData }) => {
       >
         X
       </button>
-      <h1>
-        {name}, {sys.country}
-      </h1>
-      {iconId && (
-        <img
-          src={`http://openweathermap.org/img/wn/${iconId}@2x.png`}
-          alt="weather description"
-        />
-      )}
-      <h4>{weather[0].main}</h4>
-      <p>{weather[0].description}</p>
-      <div className="temp">
-        <p>min temp: {Math.round((main.temp_min - 273.15) * 10) / 10}</p>
-        <p>max temp: {Math.round((main.temp_max - 273.15) * 10) / 10}</p>
-      </div>
-      <p>
-        Location: {coord.lon}, {coord.lat}
-      </p>
+      <Link style={styles} to={`/${id}`}>
+        <h1>
+          {name}, {sys.country}
+        </h1>
+        {iconId && (
+          <img
+            src={`http://openweathermap.org/img/wn/${iconId}@2x.png`}
+            alt="weather description"
+          />
+        )}
+        <h4>{weather[0].main}</h4>
+        <p>{weather[0].description}</p>
+        <div className="temp">
+          <p>min temp: {Math.round((main.temp_min - 273.15) * 10) / 10}</p>
+          <p>max temp: {Math.round((main.temp_max - 273.15) * 10) / 10}</p>
+        </div>
+        <p>
+          Location: {coord.lon}, {coord.lat}
+        </p>
+      </Link>
     </div>
   );
 };
