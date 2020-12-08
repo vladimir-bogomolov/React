@@ -9,6 +9,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import { Link } from "react-router-dom";
+import { toCelsius } from "./Cities";
 
 export default function Forecast({ match }) {
   const [forecast, setForecast] = useState(null);
@@ -32,13 +33,12 @@ export default function Forecast({ match }) {
             country: data.city.country,
             list: data.list.map((item) => ({
               date: item.dt_txt,
-              temp: Math.round((item.main.temp - 273.15) * 100) / 100,
+              temp: toCelsius(item.main.temp),
             })),
           };
           setForecast(newData);
         }
       } catch (err) {
-        console.log(err);
         setError("Something went wrong with fetching data...");
       } finally {
         setIsoading(false);

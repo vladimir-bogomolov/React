@@ -2,6 +2,10 @@ import "./App.css";
 import React from "react";
 import { Link } from "react-router-dom";
 
+export const toCelsius = (kelvin) => {
+  return Math.round((kelvin - 273.15) * 10) / 10;
+};
+
 const CityCard = ({ city, setWeatherData }) => {
   const { name, sys, weather, main, coord, id } = city;
   let iconId;
@@ -56,8 +60,8 @@ const CityCard = ({ city, setWeatherData }) => {
         <h4>{weather[0].main}</h4>
         <p>{weather[0].description}</p>
         <div className="temp">
-          <p>min temp: {Math.round((main.temp_min - 273.15) * 10) / 10}</p>
-          <p>max temp: {Math.round((main.temp_max - 273.15) * 10) / 10}</p>
+          <p>min temp: {toCelsius(main.temp_min)}</p>
+          <p>max temp: {toCelsius(main.temp_max)}</p>
         </div>
         <p>
           Location: {coord.lon}, {coord.lat}

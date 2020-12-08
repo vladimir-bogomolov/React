@@ -29,7 +29,6 @@ const Search = ({ weatherData, setWeatherData }) => {
           setCity("");
         }
       } catch (err) {
-        console.log(err);
         setError("Something went wrong with fetching data...");
       } finally {
         setIsoading(false);
